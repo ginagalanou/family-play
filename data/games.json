@@ -1,0 +1,29 @@
+[
+  {
+    "id": "charades",
+    "name": "Charades",
+    "supplies": ["none"],
+    "minPlayers": 2,
+    "maxPlayers": 8,
+    "ages": ["6-8","9-12","13+"],
+    "instructions": ["Act out a word; others guess.", "No speaking."]
+  },
+  {
+    "id": "dots-and-boxes",
+    "name": "Dots and Boxes",
+    "supplies": ["paper","pencil"],
+    "minPlayers": 2,
+    "maxPlayers": 4,
+    "ages": ["6-8","9-12","13+"],
+    "instructions": ["Draw a dot grid.", "Take turns drawing lines.", "Complete a box to score."]
+  },
+  {
+    "id": "balloon-keep-up",
+    "name": "Balloon Keep-Up",
+    "supplies": ["balloon"],
+    "minPlayers": 1,
+    "maxPlayers": 6,
+    "ages": ["3-5","6-8","9-12"],
+    "instructions": ["Blow up a balloon.", "Keep it from touching the floor."]
+  }
+]
