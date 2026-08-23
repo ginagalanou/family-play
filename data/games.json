@@ -1,29 +1,1290 @@
 [
   {
-    "id": "charades",
-    "name": "Charades",
-    "supplies": ["none"],
-    "minPlayers": 2,
-    "maxPlayers": 8,
-    "ages": ["6-8","9-12","13+"],
-    "instructions": ["Act out a word; others guess.", "No speaking."]
+    "id": "balloon-keep-up",
+    "name": "Balloon Keep-Up",
+    "supplies": [
+      "balloon"
+    ],
+    "ages": [
+      "0–3",
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Blow up a balloon.\n2) Throw the balloon in the air and gently tap between players so it never touches the floor.\n3) Count the taps or set the timer to create new goals. You may tap the balloon further or closer to make it easier or more challenging.\n4) Add challenges like only tap with elbows or knees.\n5) Once the balloon touches the floor, the game starts over."
+    ],
+    "players": "1+",
+    "activity": "Physical, 5-minute",
+    "noise": "Moderate"
+  },
+  {
+    "id": "paper-planes",
+    "name": "Paper Planes",
+    "supplies": [
+      "paper"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Fold simple paper airplanes.\n2) Mark a start line.\n3) Fly and measure distance with steps.\n4) Compare designs and adjust."
+    ],
+    "players": "1+",
+    "activity": "Problem-solving, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "alphabet-stop",
+    "name": "Alphabet Stop",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) One player cycles through the alphabet silently, at their chosen speed.\n2) Another player says \"Stop\" to indicate to the player counting to stop the alphabet count.\n3) The player who cycled the alphabet announces the letter he or she stopped at (e.g. letter A).\n4) Everyone takes turns naming an item in the chosen category with that letter.\n5) Players may not repeat words that were used by a different player. If a player is unable to come up with names for a given category the cycle stops.\n6) Once the cycle stops, rotate the leader who will silently cycle the alphabet.\n\nNote: The players should agree on what categories of items they need to list for any chosen letter. For older players, consider more categories. For younger players, limit to one or two categories.\n\nCategory Examples:\nNames\nAnimals\nPlants\nCountries or Cities\nColors\nProfessions\nFoods"
+    ],
+    "players": "2+",
+    "activity": "Language, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "rock-paper-scissors-pencil",
+    "name": "Rock Paper Scissors Pencil",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Say 'Rock, Paper, Scissors, Pencil' and reveal choice.\n2) Paper wraps rock, pencil writes on paper, rock breaks pencil, rock breaks scissors and pencil, scissors cut pencil and paper\n3) Best of five."
+    ],
+    "players": "2+",
+    "activity": "Seated, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "guard-dog",
+    "name": "Guard Dog",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Player A holds their hands together with fingertips touching to make a little pyramid.\n2) Player B taps each row of fingers starting from the pinky and moving up, asking at each tap, \"Do you have fire for my torch?\"\n3) Player A replies, \"No, I do not. But my upstairs neighbor might.\"\n4) Player B continues until they reach the top near the thumbs and asks again, \"Do you have fire for my torch?\"\n5) Player A replies, \"I do, but I also have a guard dog who guards my fire. Go inside the cave but be careful!\"\n6) Player B tries to stick a finger into the thumb cave while Player A tries to catch it as they dive in.\n7) Start over and swap roles."
+    ],
+    "players": "2",
+    "activity": "Fine motor, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "thumb-war",
+    "name": "Thumb War",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Grip hands with thumbs up.\n2) Chant and try to pin the other thumb for three counts.\n3) Play best of three."
+    ],
+    "players": "2",
+    "activity": "Fine motor, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "color-hunt",
+    "name": "Color Hunt",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "0–3",
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) One player (the leader) calls a color for the group.\n2) Each player has to run or hurry to go touch an item that has that color (e.g. cushion, blanket, utensil, etc.)\n3) The last player to find an item of that color becomes the new leader.\n\nNote: For older kids, you can make the shades of colors more difficult or ask them to identify more items."
+    ],
+    "players": "2+",
+    "activity": "Physical, 5-minute",
+    "noise": "Moderate"
+  },
+  {
+    "id": "tape-maze",
+    "name": "Tape Maze",
+    "supplies": [
+      "tape"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Use tape to outline a path.\n2) Players walk heel to toe.\n3) Add islands to jump between.\n4) Time each run."
+    ],
+    "players": "1+",
+    "activity": "Physical",
+    "noise": "High"
+  },
+  {
+    "id": "spoon-relay",
+    "name": "Spoon Relay",
+    "supplies": [
+      "spoon",
+      "paper"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Balance a small ball on a spoon.\n2) Walk to a line and back.\n3) If it drops, restart at the checkpoint.\n4) Race or cooperate."
+    ],
+    "players": "1+",
+    "activity": "Physical",
+    "noise": "High"
+  },
+  {
+    "id": "tissue-float",
+    "name": "Tissue Float",
+    "supplies": [
+      "tissue"
+    ],
+    "ages": [
+      "0–3",
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Toss a tissue.\n2) Keep it aloft by blowing, clapping air, or fanning.\n3) Count how long it stays up."
+    ],
+    "players": "1+",
+    "activity": "Physical, Math, 5-minute",
+    "noise": "Moderate"
+  },
+  {
+    "id": "string-limbo",
+    "name": "String Limbo",
+    "supplies": [
+      "string"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Two people hold a string.\n2) Players pass under without touching.\n3) Lower it each round."
+    ],
+    "players": "2+",
+    "activity": "Physical",
+    "noise": "High"
+  },
+  {
+    "id": "paper-basketball",
+    "name": "Paper Basketball",
+    "supplies": [
+      "paper",
+      "tape"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Crumple paper balls.\n2) Tape a hoop on a door.\n3) Shoot from marked spots.\n4) Keep score."
+    ],
+    "players": "1+",
+    "activity": "Physical, Math, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "freeze-dance",
+    "name": "Freeze Dance",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "0–3",
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) The group selects a leader. The leader claps a rhythm and the others dance.\n2) As everyone is dancing, the leader stops clapping, and everyone freezes.\n3) Anyone who moves after the clap becomes the new leader and starts over."
+    ],
+    "players": "2+",
+    "activity": "Physical, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "animal-charades",
+    "name": "Animal Charades",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Select a leader who will be the first to start the game.\n2) The leader must think of an animal.\n3) Once the animal is selected, act it out without words. For younger players, you may add sounds while acting out, for older players remove sounds to make it more challenging.\n4) Other players try to guess the correct answer.\n5) The player that guesses correctly first, gets to be leader on the next round."
+    ],
+    "players": "2+",
+    "activity": "Language",
+    "noise": "Moderate"
+  },
+  {
+    "id": "mirror-moves",
+    "name": "Mirror Moves",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "0–3",
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Pair up.\n2) Leader moves slowly while partner mirrors.\n3) Switch leaders often.\n4) Try fast, slow, big, tiny."
+    ],
+    "players": "2+",
+    "activity": "Physical, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "counting-catch",
+    "name": "Counting Catch",
+    "supplies": [
+      "balloon"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Take a ball, balloon or soft object and form a circle with people in the group.\n2) Each player throws (gently) the item to a person in the circle counting by ones, twos, fives, or tens.\n3) If the player does not catch the item or if they don't count correctly, the game starts over.\n\nNote: The group can set goals, trying to make it to higher and higher counts each time. You can make the game more difficult by throwing the item with more complex catches and throws."
+    ],
+    "players": "2+",
+    "activity": "Physical, Math, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "dice-builder",
+    "name": "Dice Builder",
+    "supplies": [
+      "dice"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Take two dice.\n2) All players decide on a target number.\n3) Each player gets to roll three times. They have to add or subtract the rolls in order to get as close to the goal number as possible.\n4) The player who is able to roll the combination of numbers closest to the goal wins.\n\nNote: For an extra challenge, add a couple more dice and introduce multiplication and division."
+    ],
+    "players": "2+",
+    "activity": "Math, Problem-solving, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "card-sums",
+    "name": "Card Sums",
+    "supplies": [
+      "deck of cards"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Take a deck of cards and remove all face cards - keep only the numbers.\n2) Each player gets to draw two cards from the deck.\n3) Once you select your cards, count to three and open them up in front of you.\n4) Add the numbers of your two cards.\n5) The player with the highest sum of points wins.\n\nNote: You may add more than two cards to make it more challenging, or keep the face cards and deduct points for each face card."
+    ],
+    "players": "2+",
+    "activity": "Math",
+    "noise": "Low"
+  },
+  {
+    "id": "card-war",
+    "name": "Card War",
+    "supplies": [
+      "deck of cards"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Shuffle a deck of cards.\n2) Flip the deck face down, and open one card next to it creating the arena.\n3) Each player takes a turn collecting one card. If the card you have collected is higher or equal value than what is open in the arena, you collect it and create a personal pile. If the card that you have is smaller than what is on the arena, you place your card on top of the open card. This means that now, your card should sit open on top of the existing one.\n4) Continue taking turns. If multiple players have smaller cards, the pile on the arena continues to grow. The player that ends up selecting a card with a higher number than what is on top, will collect all cards that are on the arena.\n5) Continue the game until the deck is gone.\n6) The player with the highest number of cards in their personal pile wins."
+    ],
+    "players": "2+",
+    "activity": "Seated",
+    "noise": "Low"
+  },
+  {
+    "id": "guess-the-sound",
+    "name": "Guess the Sound",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "0–3",
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) All player except one close their eyes.\n2) The player who has their eyes open makes a sound using their body (e.g. they clap their hands, tap the table, shuffle papers).\n3) The players with their eyes close try to guess the correct action.\n4) Whoever wins, gets to lead the action on the next round.\n\nNote: For younger kids, you can introduce some clues to help them guess."
+    ],
+    "players": "2+",
+    "activity": "Language, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "hot-cold-treasure",
+    "name": "Hot-Cold Treasure",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) One person takes an item and hides it somewhere in the house.\n2) Players try to find the item.\n3) As a player gets closer to the item the leader may say \"warm\" or \"hot\" or \"very hot\" the closer it gets. The further it gets the leader says \"cold\" or \"freezing\". This helps guide other players to narrow down the location.\n4) The player that finds the item first gets to hide it on the next round."
+    ],
+    "players": "2+",
+    "activity": "Problem-solving, 5-minute",
+    "noise": "Moderate"
+  },
+  {
+    "id": "shape-tap",
+    "name": "Shape Tap",
+    "supplies": [
+      "tape"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Place 6–10 floor shapes (circle, square, triangle, star, heart).\n2) Caller names a shape.\n3) Players move to that shape and touch it with foot, hand, or a token.\n4) For older kids, add colors or “Find a shape with 3 sides.”"
+    ],
+    "players": "1+",
+    "activity": "Physical",
+    "noise": "High"
+  },
+  {
+    "id": "line-hop",
+    "name": "Line Hop",
+    "supplies": [
+      "tape",
+      "crayons"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Make a floor number line (0–10 for younger, 0–20 or negatives for older).\n2) Caller gives a prompt (“Start at 3.”).\n3) Caller says a move (“Hop +2,” “Step −1,” “Go to the number that is 1 more than 6”).\n4) Players move to or indicate the correct answer.\n5) Score a point for each correct landing. Rotate caller."
+    ],
+    "players": "1+",
+    "activity": "Physical, Math",
+    "noise": "High"
+  },
+  {
+    "id": "balloon-tennis",
+    "name": "Balloon Tennis",
+    "supplies": [
+      "balloon"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Mark a center line in an area that has some space to move around. Use tape, string, or pillows to delineate.\n2) Hit the balloon across the line. Work in teams.\n3) Teams collect one point if the balloon is not caught by the opposite side (if it touches the ground or other furniture).\n4) Play to 7 points (or another desired level)."
+    ],
+    "players": "2+",
+    "activity": "Physical",
+    "noise": "High"
+  },
+  {
+    "id": "balloon-volleyball",
+    "name": "Balloon Volleyball",
+    "supplies": [
+      "balloon",
+      "string"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Tie a string for a net or use a high fort to create a line.\n2) Serve the balloon over to the other side, by tapping gently or aggressively on the balloon.\n3) You have up to three taps on each side to get the balloon across the net.\n4) If the players cannot get the balloon across the line after the third tap, the other team gains a point.\n5) The team that collects 10 points wins."
+    ],
+    "players": "2+",
+    "activity": "Physical",
+    "noise": "High"
+  },
+  {
+    "id": "spoon-balance",
+    "name": "Spoon Balance",
+    "supplies": [
+      "spoon",
+      "paper"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Balance an item on a spoon.\n2) Walk around obstacles.\n3) If it falls, freeze for five seconds.\n4) Cooperate to finish."
+    ],
+    "players": "1+",
+    "activity": "Physical",
+    "noise": "Moderate"
+  },
+  {
+    "id": "paper-tower",
+    "name": "Paper Tower",
+    "supplies": [
+      "paper",
+      "tape"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Each player is given 3-5 sheets of paper.\n2) Each paper creates different 3-D shapes with their paper.\n3) Players work together to stack and combine their shapes to create a tall, free-standing tower."
+    ],
+    "players": "1+",
+    "activity": "Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "story-switch",
+    "name": "Story Switch",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) One person starts a story with two sentences.\n2) Players take turns adding two more sentences to the story.\n3) The story ends when all players have had two turns."
+    ],
+    "players": "2+",
+    "activity": "Language, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "rhyme-time",
+    "name": "Rhyme Time",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Choose a starter word (cat).\n2) Players take turns saying single rhymes (bat, hat, mat).\n3) If a player repeats a word or pauses 5 seconds, that round ends. New starter.\n4) For older kids - sentence mode: 1) Speak a short sentence whose last word rhymes with the starter (“The wizard wore a hat”).; 2) Next player makes a new sentence ending in a fresh rhyme.; 3) Cooperative goal: reach five sentences without breaking the rhyme chain."
+    ],
+    "players": "2+",
+    "activity": "Language",
+    "noise": "Low"
+  },
+  {
+    "id": "simon-says",
+    "name": "Simon Says",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Follow only commands that start with 'Simon says'.\n2) Mistakes do a quick silly task.\n3) Rotate leader."
+    ],
+    "players": "2+",
+    "activity": "Physical, Language, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "shape-builder",
+    "name": "Shape Builder",
+    "supplies": [
+      "string"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Lay a string to form circles, triangles, letters, or numbers.\n2) Time each formation.\n3) Make two shapes at once."
+    ],
+    "players": "1+",
+    "activity": "Fine motor, Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "floor-target",
+    "name": "Floor Target",
+    "supplies": [
+      "tape",
+      "paper"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Using tape or string create a number of circles on the floor to serve as targets. Assign a point scale to each target (e.g. Circle 1 - 25 points, Circle 2 - 10 points, etc.).\n2) Take balls or small, soft objects to use for throws.\n3) Each player takes turns to toss three to five objects onto the targets.\n4) The player that collects the most points wins."
+    ],
+    "players": "1+",
+    "activity": "Problem-solving, Math",
+    "noise": "Moderate"
+  },
+  {
+    "id": "quiet-statues",
+    "name": "Quiet Statues",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "0–3",
+      "3–5"
+    ],
+    "instructions": [
+      "1) All players move and dance to a clap beat.\n2) The leader stops clapping and yells \"Freeze\" for everyone to stop. Players hold their pose like a statue.\n3) The dancing resumes and re-freezes throughout the game.\n4) Take turns being the leader.\n\nNote: Instead of dancing, players can pick a theme like animals at the zoo or sports to pretend play during the clapping."
+    ],
+    "players": "2+",
+    "activity": "Physical, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "follow-leader",
+    "name": "Follow Leader",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "0–3",
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Select a leader. The leader walks a path around the room doing a series of moves (e.g. hands up in the air, jumping jacks, acting like a duck, etc.).\n2) The rest of the players follow the leader and copy the moves.\n3) After each cycle, rotate the leader.\n\nNote: A few ideas on what to do - walk on your tip toes, jump, spin, crawl, walk, kneel, or dance. Add music to make it fun!"
+    ],
+    "players": "2+",
+    "activity": "Physical, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "hand-drums",
+    "name": "Hand Drums",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) One person taps a short rhythm on the table.\n2) The next player follows the rhythm and adds a move.\n3) The rotation continues until the length is too long to remember.\n4) The person that stops the chain, gets to start the next round.\n\nOptional: You can make this a group game by having one leader tap a growing rhythm and everyone else copying at the same time."
+    ],
+    "players": "2+",
+    "activity": "Seated, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "number-hunt",
+    "name": "Number Hunt",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Write the numbers 1-10 on small pieces of paper, one number per paper.\n2) Hide the papers all over the house.\n3) Players have to find the numbers and place them in order.\n\nNote: To make the game harder, try skip counting or adding more complex equations (e.g. subtractions, additions, multiplications, and divisions on each paper with corresponding answers)."
+    ],
+    "players": "2+",
+    "activity": "Math, Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "picture-memory",
+    "name": "Picture Memory",
+    "supplies": [
+      "paper",
+      "crayons"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Draw 6 simple shapes.\n2) Show for 10 seconds, then cover.\n3) Players draw from memory and compare."
+    ],
+    "players": "2+",
+    "activity": "Seated, Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "map-the-house",
+    "name": "Map the House",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Sketch a simple room map.\n2) Each player hides an object and marks an X on their paper with the hidden location.\n3) Players trade maps and try to locate the hidden objects.\n\nNote: To make the game more challenging, choose small objects and use clues to find out what the object might be."
+    ],
+    "players": "2+",
+    "activity": "Problem-solving, Language",
+    "noise": "Low"
+  },
+  {
+    "id": "tear-puzzle",
+    "name": "Tear Puzzle",
+    "supplies": [
+      "paper"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Draw a picture and tear into 6–8 pieces.\n2) Trade and reassemble.\n3) Time each puzzle."
+    ],
+    "players": "1+",
+    "activity": "Fine motor, Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "dice-workout",
+    "name": "Dice Workout",
+    "supplies": [
+      "dice"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) All players decide to assign a silly move to each number (e.g. 1 is silly dance, 2 is jumping jacks, etc.)\n2) Each player gets to roll the dice and perform the move corresponding to their number.\n\nNote: You may add music or combine player moves to make it more entertaining. You can dance to music or do exercises depending on the mood of the group."
+    ],
+    "players": "2+",
+    "activity": "Physical, Math",
+    "noise": "High"
+  },
+  {
+    "id": "guess-the-card",
+    "name": "Guess the Card",
+    "supplies": [
+      "deck of cards"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Take a deck of cards and shuffle them. One player gets to pick a secret card.\n2) Other players try to guess the number of the card by guessing numbers and asking questions.\n3) The player that guesses first takes a turn picking the next card."
+    ],
+    "players": "2+",
+    "activity": "Problem-solving, Language, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "quick-sketch",
+    "name": "Quick Sketch",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) One player selects a word.\n2) The player sketches the word on a piece of paper without using letters or numbers.\n3) Other players try to guess the word.\n4) Take turns being the artist."
+    ],
+    "players": "2+",
+    "activity": "Fine motor, Language",
+    "noise": "Low"
+  },
+  {
+    "id": "tic-tac-toe",
+    "name": "Tic-Tac-Toe",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Draw a 3x3 grid.\n2) Take turns marking one cell from the grid using \"X\" for one player and \"O\" for the other player (or other symbols of your choosing).\n3) The first player to align three of their symbols in a row diagonal, vertical, or horizontal gets the point.\n4) Play three rounds.\n\nNote: Try 4x4 or 5x5 for an added challenge."
+    ],
+    "players": "2+",
+    "activity": "Problem-solving, 5-minute",
+    "noise": "Low"
   },
   {
     "id": "dots-and-boxes",
     "name": "Dots and Boxes",
-    "supplies": ["paper","pencil"],
-    "minPlayers": 2,
-    "maxPlayers": 4,
-    "ages": ["6-8","9-12","13+"],
-    "instructions": ["Draw a dot grid.", "Take turns drawing lines.", "Complete a box to score."]
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Start with one piece of paper, and each player gets a crayon or pencil.\n2) The first player draws a number of dots all over the paper, creating dot rows.\n3) Each player takes turns adding one line to connect the dots. They may choose any area of the paper they would like.\n4) The goal is to create boxes. The player that gets to close the most boxes wins.\n\nNote: You can choose to do triangles or other shapes instead."
+    ],
+    "players": "2+",
+    "activity": "Problem-solving",
+    "noise": "Low"
   },
   {
-    "id": "balloon-keep-up",
-    "name": "Balloon Keep-Up",
-    "supplies": ["balloon"],
-    "minPlayers": 1,
-    "maxPlayers": 6,
-    "ages": ["3-5","6-8","9-12"],
-    "instructions": ["Blow up a balloon.", "Keep it from touching the floor."]
+    "id": "word-guess",
+    "name": "Word Guess",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) One chooses a word and draws blanks.\n2) Others guess letters.\n3) Track wrong guesses with a simple counter."
+    ],
+    "players": "2+",
+    "activity": "Language, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "paper-soccer",
+    "name": "Paper Soccer",
+    "supplies": [
+      "paper"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Using strips of paper make a soccer field with goals.\n2) Make a small, paper ball to serve as your soccer ball.\n3) Each player takes turns kicking the ball to make a goal.\n4) First player to score 7 goals wins.\n\nNote: For limited space, make this a miniature field and use fingers instead of feet to toss the ball into the goal."
+    ],
+    "players": "2+",
+    "activity": "Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "cats-cradle",
+    "name": "Cat’s Cradle",
+    "supplies": [
+      "string"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Player A takes a string, makes a loop by tying the two ends, and loops the string around both hands, with fingers spread to make a cradle (the string should run across both palms).\n2) Player B uses their two index fingers to pick up the two side strings from above and pull them outward.\n3) Player A relaxes, letting the pattern transfer to Player B's hands.\n4) Repeat the pick-up between the players, changing the loop pattern each time.\n5) Aim for smooth handoffs and preserving the pattern."
+    ],
+    "players": "2+",
+    "activity": "Fine motor, Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "card-tower",
+    "name": "Card Tower",
+    "supplies": [
+      "deck of cards"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Take a deck of cards.\n2) Carefully take each card and stack them to make boxes or triangles that stand up on their own.\n3) Once you have successfully raised one level, keep adding cards to make the structure taller.\n4) Measure the height of the structure and try to make it as high as possible.\n\nNote: You can play this game in teams or split the deck amongst players and compare the height of each of the structures within a time window."
+    ],
+    "players": "1+",
+    "activity": "Fine motor, Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "crayon-sort",
+    "name": "Crayon Sort",
+    "supplies": [
+      "crayons",
+      "paper"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Take paper and pens, pencils, markers, or crayons.\n2) Each player takes one color.\n3) Set a timer for 2 minutes and ask each player to draw as many circles as they can in that time.\n4) Once the timer goes off, count how many shapes each player was able to draw.\n5) The player who was able to draw the most gets to pick the shape to draw for the next challenge."
+    ],
+    "players": "1+",
+    "activity": "Seated, Math",
+    "noise": "Low"
+  },
+  {
+    "id": "crumple-toss",
+    "name": "Crumple Toss",
+    "supplies": [
+      "paper",
+      "tape"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Tape or draw a circle target.\n2) Crumple three pieces of paper into balls, or pick three soft items instead.\n3) Each player takes turns tossing the three items from a line or agreed upon distance.\n4) The player that scores the most items closest to the center of the circle wins.\n\nNote: You may replace the circle with a basket if one is available."
+    ],
+    "players": "1+",
+    "activity": "Physical, Problem-solving",
+    "noise": "Moderate"
+  },
+  {
+    "id": "shape-stomp",
+    "name": "Shape Stomp",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Place paper shapes on the floor.\n2) Call a shape.\n3) Players stomp or hop onto it.\n4) Add two-shape sequences."
+    ],
+    "players": "1+",
+    "activity": "Physical",
+    "noise": "High"
+  },
+  {
+    "id": "word-builder",
+    "name": "Word Builder",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Write five random letters.\n2) Build as many words as possible.\n3) Longer words score more."
+    ],
+    "players": "1+",
+    "activity": "Language, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "balance-bridge",
+    "name": "Balance Bridge",
+    "supplies": [
+      "string",
+      "tape"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Tape a string or use a single strip of tape to create a \"bridge\" on the floor.\n2) Each player takes turns walking heel to toe across the bridge.\n3) For an extra challenge, players get to shout \"FREEZE\" mid-bridge. Once \"FREEZE\" is activated the player has to stop and balance as they are.\n4) If the player falls, they start over. If the player crosses successfully, the next player takes their turn."
+    ],
+    "players": "1+",
+    "activity": "Physical",
+    "noise": "Moderate"
+  },
+  {
+    "id": "target-steps",
+    "name": "Target Steps",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Choose a target number.\n2) Players take turns adding 1, 2, or 3 aloud.\n3) First to say the target wins.\n4) Discuss strategy."
+    ],
+    "players": "2+",
+    "activity": "Math, Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "minute-tower",
+    "name": "Minute Tower",
+    "supplies": [
+      "paper"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Provide one to five sheets of paper to each player (allow tape, if available).\n2) Players create rolled tubes or pyramid bases trying to stack as many papers as possible. They have a few minutes to do so (one to three minutes).\n3) Once all players are done, they vote for their favorite tower. The tower with the most votes wins."
+    ],
+    "players": "1+",
+    "activity": "Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "shadow-shapes",
+    "name": "Shadow Shapes",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) One draws an outline shape.\n2) Others fill with patterns or lines only.\n3) Vote for most creative and swap roles."
+    ],
+    "players": "1+",
+    "activity": "Fine motor, Language",
+    "noise": "Low"
+  },
+  {
+    "id": "pattern-clap",
+    "name": "Pattern Clap",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Leader claps a pattern.\n2) Group repeats.\n3) Add stomps or snaps.\n4) Increase complexity."
+    ],
+    "players": "2+",
+    "activity": "Seated, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "estimation-jar",
+    "name": "Estimation Jar",
+    "supplies": [
+      "paper",
+      "pencil"
+    ],
+    "ages": [
+      "6–8",
+      "9–12"
+    ],
+    "instructions": [
+      "1) Take sheets of paper and make tiny paper balls.\n2) Take a jar or a glass and place the balls inside.\n3) Each player takes a turn guessing how many balls are in the container.\n4) After everyone takes a guess, empty the container and count the balls.\n5) The player closest to the real count wins."
+    ],
+    "players": "1+",
+    "activity": "Math, Problem-solving",
+    "noise": "Low"
+  },
+  {
+    "id": "direction-dash",
+    "name": "Direction Dash",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) The group chooses one leader to call out the directions.\n2) The leader calls out two-step or three-step directions to the group (e.g. two steps left, one step forward).\n3) Players must follow the directions along a line. If a player falls or forgets the instructions they become the leader."
+    ],
+    "players": "2+",
+    "activity": "Physical, Problem-solving, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "letter-builder",
+    "name": "Letter Builder",
+    "supplies": [
+      "tape",
+      "paper"
+    ],
+    "ages": [
+      "3–5",
+      "6–8"
+    ],
+    "instructions": [
+      "1) Use string or tape to form a large letter on the floor (start with A, M, S).\n2) Walk the path while saying the letter name.\n3) Mission 1 (6–8): Say three words starting with that letter while you trace.\n4) Mission 2: Long vs short sounds (“A” in “cake” vs “cat”). Choose which you are tracing and say a matching word.\n5) Mission 3: Toss a paper ball to land on a specific part (“land on the slanted leg of A”).\n6) Switch letters and roles."
+    ],
+    "players": "1+",
+    "activity": "Physical, Language",
+    "noise": "Low"
+  },
+  {
+    "id": "pillow-battle",
+    "name": "Pillow Battle",
+    "icon": "🛏️",
+    "color": "#7CC7FF",
+    "supplies": [
+      "pillows"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Clear a safe area away from lamps, sharp corners, and fragile items.\n2) Each player gets one pillow.\n3) Set 30–60 seconds per round.\n4) Safe rules: no hits to face or head, no pushing, no tackling, and no swinging with extra objects.\n5) Each clean tap to the torso or legs is 1 point.\n6) After time, count points and start a new round. Rotate partners if you have a group."
+    ],
+    "players": "2+",
+    "activity": "Physical, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "floor-is-lava-pillows",
+    "name": "Floor Is Lava",
+    "icon": "🛌",
+    "color": "#FF9F68",
+    "supplies": [
+      "pillows"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Place pillows around the room as safe islands.\n2) Choose a start island and an end island.\n3) The leader announces, \"The floor is lava!\" and players may only step on islands.\n4) If a player touches the floor, they return to the start.\n5) Increase difficulty by removing one island each round or adding a time limit.\n\nNote: Make sure islands do not slide. If floors are slippery, place pillows on rugs or use heavier cushions."
+    ],
+    "players": "2+",
+    "activity": "Physical, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "pillow-fort-builders",
+    "name": "Pillow Fort Builders",
+    "icon": "🛏️🏰",
+    "color": "#B5A0FF",
+    "supplies": [
+      "pillows",
+      "blankets"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) As a group, choose one build zone in the room.\n2) Work together to build one shared fort using pillows as walls and a blanket as the roof.\n3) Decide roles if helpful, such as wall builders, roof holders, or testers.\n4) Set a short build timer or build until the fort can stand on its own.\n5) Once finished, crawl inside and test the fort.\n6) Optional challenge: the fort must include an entrance, a window, and a special space for a shared treasure.\n\nNote: Encourage communication and teamwork. Adjust the challenge by limiting the number of pillows or requiring the fort to fit everyone inside."
+    ],
+    "players": "1+",
+    "activity": "Problem-solving, Creative, 5-minute",
+    "noise": "Moderate"
+  },
+  {
+    "id": "pillow-boats",
+    "name": "Pillow Boats",
+    "icon": "🛏️⛵",
+    "color": "#62D1C7",
+    "supplies": [
+      "pillows"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Set a start line and a finish line across the room.\n2) Each player or team gets 2–4 pillows.\n3) Everyone must stay seated on a pillow at all times.\n4) To move, place one pillow ahead, scoot onto it, then move the pillow behind to the front.\n5) If a player touches the floor with hands, knees, or feet, they go back one pillow-length.\n6) First player or team to reach the finish wins.\n\nNote: Clear the path and avoid slippery surfaces."
+    ],
+    "players": "2+",
+    "activity": "Physical, Problem-solving, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "pillow-swap-circle",
+    "name": "Pillow Swap Circle",
+    "icon": "🛏️🔄",
+    "color": "#FFD166",
+    "supplies": [
+      "pillows"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Stand in a circle. Each person holds one pillow.\n2) Practice round: on \"1, 2, 3,\" everyone passes their pillow to the right.\n3) Once smooth, on \"1, 2, 3,\" gently toss to the right while grabbing from the left at the same time.\n4) If any pillow drops, the group restarts and tries to beat its best streak.\n5) Optional: increase speed, change directions, or add a second pillow for older players."
+    ],
+    "players": "3+",
+    "activity": "Physical, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "dark-room-statue-seek",
+    "name": "Dark Room",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Set boundaries for where players may hide.\n2) Choose one seeker. Everyone else hides in a still position.\n3) Turn off the lights. The seeker closes their eyes for 10 seconds.\n4) The seeker slowly searches by listening and reaching carefully.\n5) Hiders may not move once they choose a spot.\n6) When the seeker tags someone, that person becomes the next seeker.\n\nNote: Safety first. Keep walkways clear and avoid stairs or tight spaces."
+    ],
+    "players": "2+",
+    "activity": "Problem-solving, 5-minute",
+    "noise": "Low"
+  },
+  {
+    "id": "cushion-target-toss",
+    "name": "Cushion Target Toss",
+    "icon": "🎯🛏️",
+    "color": "#F25F5C",
+    "supplies": [
+      "pillows",
+      "paper"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Place 3–5 pillows on the floor as targets. Assign each target points.\n2) Crumple paper into 5–10 paper balls.\n3) Mark a throwing line.\n4) Each player tosses five paper balls and totals their score.\n5) Play 2–3 rounds. Highest total wins.\n\nNote: If paper is not available, use small socks or soft toys instead."
+    ],
+    "players": "1+",
+    "activity": "Physical, Math, 5-minute",
+    "noise": "Moderate"
+  },
+  {
+    "id": "fort-guard",
+    "name": "Fort Guard",
+    "icon": "🛏️🛡️",
+    "color": "#6DD3A0",
+    "supplies": [
+      "pillows"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Create a fort boundary using pillows.\n2) Place one pillow inside as the treasure pillow.\n3) Choose one guard to stand near the fort.\n4) Other players start from a line and try to grab the treasure pillow and bring it back to the start line.\n5) The guard may tag runners, but must keep one foot touching the fort boundary.\n6) If tagged, the runner returns to start. If a runner succeeds, they become the next guard."
+    ],
+    "players": "3+",
+    "activity": "Physical, Strategy, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "pillow-path-relay",
+    "name": "Pillow Path Relay",
+    "icon": "🛏️➡️",
+    "color": "#FFA7C4",
+    "supplies": [
+      "pillows"
+    ],
+    "ages": [
+      "3–5",
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Create a winding path across the room using pillows as stepping stones.\n2) Players line up in teams.\n3) One at a time, players cross the pillow path without touching the floor.\n4) If a player touches the floor, they restart.\n5) When a player finishes, they tag the next teammate.\n6) First team to get everyone across wins.\n\nNote: For younger kids, allow one rescue step per run."
+    ],
+    "players": "2+",
+    "activity": "Physical, Teamwork, 5-minute",
+    "noise": "High"
+  },
+  {
+    "id": "silent-signals",
+    "name": "Silent Signals",
+    "supplies": [
+      "none"
+    ],
+    "ages": [
+      "6–8",
+      "9–12",
+      "13+"
+    ],
+    "instructions": [
+      "1) Choose one leader.\n2) The leader sets a no-talking rule for the round.\n3) The leader points to two players and silently assigns a goal such as swap seats, line up by height, or pass an object across the circle.\n4) Players must communicate without speaking to complete the goal.\n5) The group succeeds if the goal happens without anyone talking.\n6) Rotate leader each round.\n\nNote: To make it easier, allow whispering. To make it harder, set a 30-second timer per round."
+    ],
+    "players": "3+",
+    "activity": "Language, Problem-solving, 5-minute",
+    "noise": "Low"
   }
 ]
