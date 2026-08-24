@@ -262,9 +262,8 @@ export default function GamesScreen() {
     (value: string) => {
       setActivePreset(null);
       setQuery(value);
-      scrollToTop(false);
     },
-    [scrollToTop]
+    []
   );
 
   const handleOpenFilters = useCallback(() => {
@@ -366,31 +365,18 @@ export default function GamesScreen() {
     ]
   );
 
-  const renderHeader = useCallback(() => {
-    return (
-      <BrowseHeader
-        query={query}
-        showOnlyFavorites={showOnlyFavorites}
-        totalSelectedFilters={totalSelectedFilters}
-        onBackToAllGames={handleFavoritesBack}
-        onToggleFavorites={handleToggleFavorites}
-        onOpenFilters={handleOpenFilters}
-        onChangeQuery={handleChangeQuery}
-      />
-    );
-  }, [
-    handleChangeQuery,
-    handleFavoritesBack,
-    handleOpenFilters,
-    handleToggleFavorites,
-    query,
-    showOnlyFavorites,
-    totalSelectedFilters,
-  ]);
-
   return (
     <SmoothScreen style={styles.screenWrapper}>
       <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
+        <BrowseHeader
+          query={query}
+          showOnlyFavorites={showOnlyFavorites}
+          totalSelectedFilters={totalSelectedFilters}
+          onBackToAllGames={handleFavoritesBack}
+          onToggleFavorites={handleToggleFavorites}
+          onOpenFilters={handleOpenFilters}
+          onChangeQuery={handleChangeQuery}
+        />
         <FlatList
           ref={listRef}
           data={listData}
@@ -400,8 +386,8 @@ export default function GamesScreen() {
             styles.listContent,
             { paddingBottom: 16 + insets.bottom },
           ]}
-          ListHeaderComponent={renderHeader}
-          stickyHeaderIndices={[0]}
+          keyboardDismissMode="none"
+          keyboardShouldPersistTaps="handled"
         />
 
         <FiltersModal

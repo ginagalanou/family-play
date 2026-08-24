@@ -50,7 +50,6 @@ export default function AddGame() {
 
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     if (!editGameId) return;
@@ -89,9 +88,21 @@ export default function AddGame() {
     });
   }, [editGameId]);
 
+  const resetForm = useCallback(() => {
+    setName("");
+    setSupplies("");
+    setSupplyChoices([]);
+    setAgeChoices([]);
+    setPlayerChoices([]);
+    setActivity("");
+    setActivityChoices([]);
+    setNoiseChoices([]);
+    setInstructions("");
+    setEditing(false);
+  }, []);
+
   const handleSave = useCallback(async () => {
     setError(null);
-    setSuccess(false);
 
     if (!name.trim() || !instructions.trim()) {
       setError("Name and instructions are required.");
@@ -122,15 +133,20 @@ export default function AddGame() {
         ? editGameId
         : `custom-${Date.now()}`;
 
-    if (editing && editGameId) {
-      await updateCustomGame(editGameId, payload);
-    } else {
-      await addCustomGame({ id: targetId, ...payload });
-    }
+    try {
+      if (editing && editGameId) {
+        await updateCustomGame(editGameId, payload);
+      } else {
+        await addCustomGame({ id: targetId, ...payload });
+      }
 
-    setSaving(false);
-    setSuccess(true);
-    router.replace({ pathname: "/(tabs)/browse", params: { highlightId: targetId } });
+      resetForm();
+      setSaving(false);
+      router.replace({ pathname: "/(tabs)/game/[id]", params: { id: targetId } });
+    } catch {
+      setSaving(false);
+      setError("We couldn't save that game. Please try again.");
+    }
   }, [
     name,
     supplies,
@@ -143,6 +159,7 @@ export default function AddGame() {
     noiseChoices,
     editing,
     editGameId,
+    resetForm,
   ]);
 
   return (
@@ -350,15 +367,6 @@ export default function AddGame() {
               <Ionicons name="alert-circle-outline" size={16} color={Colors.text} />
               <AppText variant="label" style={styles.bannerText}>
                 {error}
-              </AppText>
-            </View>
-          ) : null}
-
-          {success ? (
-            <View style={styles.bannerSuccess}>
-              <Ionicons name="checkmark-circle-outline" size={16} color={Colors.deepTeal} />
-              <AppText variant="label" style={styles.bannerSuccessText}>
-                Saved! Opening it in the list.
               </AppText>
             </View>
           ) : null}
@@ -574,17 +582,4 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   bannerText: { color: Colors.text },
-  bannerSuccess: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-    backgroundColor: Colors.softTealTint,
-    borderWidth: 1,
-    borderColor: Colors.border,
-    borderRadius: 10,
-    padding: 10,
-  },
-  bannerSuccessText: {
-    color: Colors.deepTeal,
-  },
 });

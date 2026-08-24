@@ -36,6 +36,13 @@ assert.deepEqual(games.parsePlayers("3-4"), { min: 3, max: 4 });
 assert.equal(games.playersMatchFilter("1, 2+, 5+", "1"), true);
 assert.equal(games.playersMatchFilter("1, 2+, 5+", "5+"), true);
 assert.equal(games.playersMatchFilter("1", "2+"), false);
+assert.equal(games.suppliesMatchAvailable(["paper"], ["paper", "tape"]), true);
+assert.equal(games.suppliesMatchAvailable(["paper", "tape"], ["paper"]), false);
+assert.equal(games.suppliesMatchAvailable(["paper", "tape"], ["paper", "tape", "cups"]), true);
+assert.equal(games.suppliesMatchAvailable([], ["paper"]), true);
+assert.equal(games.suppliesMatchAvailable(["none"], ["paper"]), true);
+assert.equal(games.suppliesMatchAvailable([], ["none"]), true);
+assert.equal(games.suppliesMatchAvailable(["paper"], ["none"]), false);
 
 const parsed = instructions.parseInstructionBlocks([
   "1) Start with a balloon\nNote: Keep it gentle\nCategory examples:\n- animals\n- colors",

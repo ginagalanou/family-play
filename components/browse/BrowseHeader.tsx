@@ -72,10 +72,11 @@ export function BrowseHeader({
         <TextInput
           value={query}
           onChangeText={onChangeQuery}
-          placeholder="Search name, age, supplies, activity, noise"
+          placeholder="Search games or instructions"
           style={styles.search}
           autoCapitalize="none"
           autoCorrect={false}
+          returnKeyType="search"
           placeholderTextColor={Colors.mutedText}
         />
       </View>

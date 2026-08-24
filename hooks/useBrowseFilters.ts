@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import type { DerivedFilters, FilterMap, GameListItem } from "../types/browse";
 import type { FavoritesMap } from "../utils/favorites";
-import { playersMatchFilter, splitCSV } from "../utils/games";
+import { playersMatchFilter, splitCSV, suppliesMatchAvailable } from "../utils/games";
 
 type UseBrowseFiltersInput = {
   allGames: GameListItem[];
@@ -91,18 +91,7 @@ export function useBrowseFilters({
       }
 
       if (wantsSupplies) {
-        const selected = new Set(Object.keys(supplies));
-        const reqs = (game.supplies || [])
-          .map((supply) => supply.toLowerCase())
-          .filter((supply) => supply !== "none");
-
-        if (selected.has("none")) {
-          if (reqs.length > 0) return false;
-        } else {
-          if (reqs.length === 0) return false;
-          const hasAllSelected = Array.from(selected).every((supply) => reqs.includes(supply));
-          if (!hasAllSelected) return false;
-        }
+        if (!suppliesMatchAvailable(game.supplies, Object.keys(supplies))) return false;
       }
 
       if (wantsAges) {

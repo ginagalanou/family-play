@@ -56,6 +56,30 @@ export function playersMatchFilter(raw: string | undefined, filter: string) {
   });
 }
 
+export function suppliesMatchAvailable(
+  gameSupplies: string[] | undefined,
+  selectedSupplies: Iterable<string>
+) {
+  const selected = new Set(
+    Array.from(selectedSupplies)
+      .map((supply) => supply.toLowerCase())
+      .filter(Boolean)
+  );
+  if (selected.size === 0) return true;
+
+  const available = new Set(Array.from(selected).filter((supply) => supply !== "none"));
+  const required = (gameSupplies ?? [])
+    .map((supply) => supply.toLowerCase())
+    .filter((supply) => supply !== "none");
+
+  if (required.length === 0) {
+    return selected.has("none") || available.size > 0;
+  }
+  if (available.size === 0) return false;
+
+  return required.every((supply) => available.has(supply));
+}
+
 export function normalizeInstructions(value?: Game["instructions"]) {
   if (Array.isArray(value)) {
     return value.filter(Boolean);

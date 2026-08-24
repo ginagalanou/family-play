@@ -11,10 +11,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.gina.familyplay"
+      "supportsTablet": false,
+      "bundleIdentifier": "com.gina.familyplay",
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "package": "com.gina.familyplay",
+      "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#EFFFFC",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
