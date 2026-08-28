@@ -10,7 +10,7 @@ import { Colors } from "../theme/colors";
 import { Radius, Shadows, Spacing } from "../theme/layout";
 import { Typography } from "../theme/typography";
 
-const SUPPORT_EMAIL = "support@galanouconsulting.com";
+const SUPPORT_EMAIL = "galanouconsulting@gmail.com";
 
 const faqs = [
   {
