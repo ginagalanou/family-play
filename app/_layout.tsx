@@ -28,6 +28,8 @@ export default function RootLayout() {
     }}
   >
       <Stack.Screen name="index" />
+      <Stack.Screen name="family-play-support" />
+      <Stack.Screen name="support" />
       <Stack.Screen name="(tabs)" />
     </Stack>
   );
