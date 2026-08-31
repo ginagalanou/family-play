@@ -64,7 +64,7 @@ export default function Explore() {
 
   return (
     <SmoothScreen style={styles.screen}>
-      <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
+      <SafeAreaView style={styles.container} edges={["top"]}>
         <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.headingRow}>
           <BrandLogo size={48} imageSize={32} borderRadius={14} />

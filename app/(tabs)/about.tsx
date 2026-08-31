@@ -26,7 +26,7 @@ const howSteps = [
 export default function AboutScreen() {
   return (
     <SmoothScreen style={styles.screen}>
-      <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
+      <SafeAreaView style={styles.container} edges={["top"]}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.heroCard}>
           <BrandLogo

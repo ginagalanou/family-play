@@ -1,5 +1,6 @@
 import { router, useLocalSearchParams } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Alert, Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -17,10 +18,11 @@ import {
 import {
   FavoritesMap,
   loadFavorites,
+  removeFavorite,
   saveFavorites,
   toggleFavorite,
 } from "../../../utils/favorites";
-import { recordRecentlyPlayed } from "../../../utils/recent";
+import { recordRecentlyPlayed, removeRecentlyPlayed } from "../../../utils/recent";
 import { normalizeInstructions } from "../../../utils/games";
 import { pickGameBadge } from "../../../utils/gameBadges";
 import { parseInstructionBlocks } from "../../../utils/instructions";
@@ -34,16 +36,22 @@ export default function GameDetail() {
   const [customGames, setCustomGames] = useState<CustomGame[]>([]);
   const [customLoaded, setCustomLoaded] = useState(false);
 
-  useEffect(() => {
-    loadFavorites().then(setFavorites);
-  }, []);
-
-  useEffect(() => {
-    loadCustomGames().then((list) => {
-      setCustomGames(list);
-      setCustomLoaded(true);
-    });
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      let active = true;
+      loadFavorites().then((loadedFavorites) => {
+        if (active) setFavorites(loadedFavorites);
+      });
+      loadCustomGames().then((list) => {
+        if (!active) return;
+        setCustomGames(list);
+        setCustomLoaded(true);
+      });
+      return () => {
+        active = false;
+      };
+    }, [])
+  );
 
   const game = useMemo(() => {
     const allGames: (Game | CustomGame)[] = [...baseGames, ...customGames];
@@ -71,7 +79,7 @@ export default function GameDetail() {
   if (!game) {
     if (!customLoaded) {
       return (
-        <SafeAreaView style={styles.fallback} edges={["top", "bottom"]}>
+        <SafeAreaView style={styles.fallback} edges={["top"]}>
           <AppText variant="body" style={styles.missingText}>
             Loading game...
           </AppText>
@@ -80,7 +88,7 @@ export default function GameDetail() {
     }
 
     return (
-      <SafeAreaView style={styles.fallback} edges={["top", "bottom"]}>
+      <SafeAreaView style={styles.fallback} edges={["top"]}>
         <AppText variant="body" style={styles.missingText}>
           Game not found.
         </AppText>
@@ -120,7 +128,7 @@ export default function GameDetail() {
 
   return (
     <SmoothScreen style={styles.screen}>
-      <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
+      <SafeAreaView style={styles.container} edges={["top"]}>
       <ScrollView contentContainerStyle={styles.content}>
         <Pressable
           onPress={() => router.push("/(tabs)/browse")}
@@ -270,6 +278,9 @@ export default function GameDetail() {
                       style: "destructive",
                       onPress: async () => {
                         await deleteCustomGame(gameId);
+                        const currentFavorites = await loadFavorites();
+                        await saveFavorites(removeFavorite(gameId, currentFavorites));
+                        await removeRecentlyPlayed(gameId);
                         router.replace("/(tabs)/browse");
                       },
                     },

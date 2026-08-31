@@ -164,7 +164,7 @@ export default function AddGame() {
 
   return (
     <SmoothScreen style={styles.screen}>
-      <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
+      <SafeAreaView style={styles.container} edges={["top"]}>
         <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -266,7 +266,7 @@ export default function AddGame() {
               </View>
             </FormField>
 
-            <FormField label="Players">
+            <FormField label="Minimum players">
               <View style={styles.pillRow}>
                 {playerPreset.map((option) => {
                   const selected = isSelected(playerChoices, option);
@@ -413,7 +413,7 @@ function FormField({
     <View style={styles.field}>
       <AppText variant="label" style={styles.label}>
         {label}
-        {required ? " *" : ""}
+        {required ? " (Required)" : ""}
       </AppText>
       {children}
     </View>

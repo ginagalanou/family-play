@@ -29,8 +29,8 @@ export const presetFilters: Record<PresetKey, PresetConfig> = {
   group: { players: "5+" },
   fiveMinute: { activity: ["5-minute"] },
   ageUnder2: { ages: ["0–3"] },
-  age2to4: { ages: ["0–3", "3–5"] },
-  age5to7: { ages: ["3–5", "6–8"] },
+  age2to4: { ages: ["0–3", "4–5"] },
+  age5to7: { ages: ["4–5", "6–8"] },
   age8plus: { ages: ["6–8", "9–12", "13+"] },
 };
 

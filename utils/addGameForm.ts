@@ -1,3 +1,5 @@
+import { ageFilterOptions, noiseFilterOptions } from "./games";
+
 export const supplyPreset = [
   "balloon",
   "paper",
@@ -11,9 +13,9 @@ export const supplyPreset = [
   "none",
 ];
 
-export const agePreset = ["0\u20133", "3\u20135", "6\u20138", "9\u201312", "13+"];
+export const agePreset = [...ageFilterOptions];
 
-export const playerPreset = ["1", "1-2", "1-4", "2+", "3+", "4+", "5+"];
+export const playerPreset = ["1+", "2+", "3+", "4+", "5+"];
 
 export const activityPreset = [
   "Physical",
@@ -29,7 +31,7 @@ export const activityPreset = [
   "Active",
 ];
 
-export const noisePreset = ["Low", "Moderate", "High"];
+export const noisePreset = [...noiseFilterOptions];
 
 export function parseList(value: string) {
   return value

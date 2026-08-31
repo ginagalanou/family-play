@@ -97,25 +97,15 @@ export default function GamesScreen() {
     if (openFilters === "1") setFiltersOpen(true);
   }, [openFilters]);
 
-  useEffect(() => {
-    loadFavorites().then(setFavorites);
-  }, []);
-
   useFocusEffect(
     useCallback(() => {
       let active = true;
+      loadFavorites().then((loadedFavorites) => {
+        if (active) setFavorites(loadedFavorites);
+      });
       loadRecentlyPlayed().then((ids) => {
         if (active) setRecentIds(ids);
       });
-      return () => {
-        active = false;
-      };
-    }, [])
-  );
-
-  useFocusEffect(
-    useCallback(() => {
-      let active = true;
       loadCustomGames().then((list) => {
         if (active) setCustomGames(list);
       });
@@ -367,7 +357,7 @@ export default function GamesScreen() {
 
   return (
     <SmoothScreen style={styles.screenWrapper}>
-      <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
+      <SafeAreaView style={styles.container} edges={["top"]}>
         <BrowseHeader
           query={query}
           showOnlyFavorites={showOnlyFavorites}

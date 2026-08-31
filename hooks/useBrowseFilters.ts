@@ -1,7 +1,16 @@
 import { useMemo } from "react";
 import type { DerivedFilters, FilterMap, GameListItem } from "../types/browse";
 import type { FavoritesMap } from "../utils/favorites";
-import { playersMatchFilter, splitCSV, suppliesMatchAvailable } from "../utils/games";
+import {
+  activityFilterOptions,
+  ageFilterOptions,
+  noiseFilterOptions,
+  normalizeAgeBand,
+  playersMatchFilter,
+  sortByPreferredOrder,
+  splitCSV,
+  suppliesMatchAvailable,
+} from "../utils/games";
 
 type UseBrowseFiltersInput = {
   allGames: GameListItem[];
@@ -54,9 +63,18 @@ export function useBrowseFilters({
       if (b === "none") return 1;
       return a.localeCompare(b);
     });
-    const allAges = Array.from(new Set(allGames.flatMap((game) => game.ages || [])));
-    const allNoise = Array.from(new Set(allGames.flatMap((game) => splitCSV(game.noise))));
-    const allActivity = Array.from(new Set(allGames.flatMap((game) => splitCSV(game.activity))));
+    const allAges = sortByPreferredOrder(
+      Array.from(new Set(allGames.flatMap((game) => (game.ages || []).map(normalizeAgeBand)))),
+      ageFilterOptions
+    );
+    const allNoise = sortByPreferredOrder(
+      Array.from(new Set(allGames.flatMap((game) => splitCSV(game.noise)))),
+      noiseFilterOptions
+    );
+    const allActivity = sortByPreferredOrder(
+      Array.from(new Set(allGames.flatMap((game) => splitCSV(game.activity)))),
+      activityFilterOptions
+    );
 
     return { supplies: allSupplies, ages: allAges, noise: allNoise, activity: allActivity };
   }, [allGames]);
@@ -96,7 +114,7 @@ export function useBrowseFilters({
 
       if (wantsAges) {
         const selected = new Set(Object.keys(ages));
-        const ok = (game.ages || []).some((age) => selected.has(age));
+        const ok = (game.ages || []).some((age) => selected.has(normalizeAgeBand(age)));
         if (!ok) return false;
       }
 

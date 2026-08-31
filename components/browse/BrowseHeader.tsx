@@ -87,7 +87,7 @@ export function BrowseHeader({
 const styles = StyleSheet.create({
   stickyHeader: {
     backgroundColor: Colors.pageBackground,
-    paddingTop: Spacing.xs / 2,
+    paddingTop: Spacing.sm,
     paddingBottom: Spacing.xs / 2,
   },
   topBar: {

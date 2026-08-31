@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Game } from "../types/game";
+import { normalizeAgeBand } from "./games";
 
 export type CustomGame = Game & {
   createdAt: number;
@@ -15,6 +16,10 @@ function sanitizeText(value: string) {
 function sanitizeOptionalText(value?: string) {
   const cleaned = value?.trim();
   return cleaned || undefined;
+}
+
+function hasOwn(object: object, key: PropertyKey) {
+  return Object.prototype.hasOwnProperty.call(object, key);
 }
 
 function normalizeInstructionLines(
@@ -46,7 +51,7 @@ export async function loadCustomGames(): Promise<CustomGame[]> {
           id: String(game.id),
           name: sanitizeText(game.name),
           supplies: (game.supplies ?? []).map(String),
-          ages: (game.ages ?? []).map(String),
+          ages: (game.ages ?? []).map(String).map(normalizeAgeBand),
           instructions: normalizeInstructionLines(game.instructions),
           players: sanitizeOptionalText(game.players ? String(game.players) : undefined),
           activity: sanitizeOptionalText(game.activity ? String(game.activity) : undefined),
@@ -79,7 +84,7 @@ export async function addCustomGame(
     id: partial.id ?? `custom-${now}`,
     name: sanitizeText(partial.name),
     supplies: (partial.supplies ?? []).map(sanitizeText).filter(Boolean),
-    ages: (partial.ages ?? []).map(sanitizeText).filter(Boolean),
+    ages: (partial.ages ?? []).map(sanitizeText).filter(Boolean).map(normalizeAgeBand),
     instructions: normalizeInstructionLines(partial.instructions),
     players: sanitizeOptionalText(partial.players),
     activity: sanitizeOptionalText(partial.activity),
@@ -102,24 +107,27 @@ export async function updateCustomGame(
     if (game.id !== id) return game;
     return {
       ...game,
-      name: updates.name ? sanitizeText(updates.name) : game.name,
+      name:
+        hasOwn(updates, "name") && updates.name
+          ? sanitizeText(updates.name)
+          : game.name,
       supplies:
-        updates.supplies !== undefined
+        hasOwn(updates, "supplies")
           ? (updates.supplies ?? []).map(sanitizeText).filter(Boolean)
           : game.supplies,
       ages:
-        updates.ages !== undefined
-          ? (updates.ages ?? []).map(sanitizeText).filter(Boolean)
+        hasOwn(updates, "ages")
+          ? (updates.ages ?? []).map(sanitizeText).filter(Boolean).map(normalizeAgeBand)
           : game.ages,
       instructions:
-        updates.instructions !== undefined
+        hasOwn(updates, "instructions")
           ? normalizeInstructionLines(updates.instructions)
           : game.instructions,
       players:
-        updates.players !== undefined ? sanitizeOptionalText(updates.players) : game.players,
+        hasOwn(updates, "players") ? sanitizeOptionalText(updates.players) : game.players,
       activity:
-        updates.activity !== undefined ? sanitizeOptionalText(updates.activity) : game.activity,
-      noise: updates.noise !== undefined ? sanitizeOptionalText(updates.noise) : game.noise,
+        hasOwn(updates, "activity") ? sanitizeOptionalText(updates.activity) : game.activity,
+      noise: hasOwn(updates, "noise") ? sanitizeOptionalText(updates.noise) : game.noise,
     };
   });
   await saveCustomGames(next);

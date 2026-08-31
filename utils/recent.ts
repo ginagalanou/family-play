@@ -35,3 +35,14 @@ export async function recordRecentlyPlayed(id: string) {
     console.warn("Failed to record recently played", error);
   }
 }
+
+export async function removeRecentlyPlayed(id: string) {
+  try {
+    const existing = await loadRecentlyPlayed();
+    const next = existing.filter((item) => item !== id);
+    await saveRecentlyPlayed(next);
+    return next;
+  } catch (error) {
+    console.warn("Failed to remove recently played", error);
+  }
+}

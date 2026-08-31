@@ -5,8 +5,11 @@ import { fileURLToPath } from "node:url";
 import ts from "typescript";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const moduleCache = new Map();
 
 function loadTsModule(relativePath) {
+  if (moduleCache.has(relativePath)) return moduleCache.get(relativePath);
+
   const filename = resolve(root, relativePath);
   const source = readFileSync(filename, "utf8");
   const { outputText } = ts.transpileModule(source, {
@@ -20,10 +23,14 @@ function loadTsModule(relativePath) {
 
   const module = { exports: {} };
   const localRequire = (specifier) => {
+    if (relativePath === "utils/addGameForm.ts" && specifier === "./games") {
+      return loadTsModule("utils/games.ts");
+    }
     throw new Error(`Unexpected dependency ${specifier} in ${relativePath}`);
   };
   const wrapped = new Function("require", "module", "exports", outputText);
   wrapped(localRequire, module, module.exports);
+  moduleCache.set(relativePath, module.exports);
   return module.exports;
 }
 
@@ -34,8 +41,17 @@ const addForm = loadTsModule("utils/addGameForm.ts");
 assert.deepEqual(games.splitCSV("Low, Moderate, High"), ["Low", "Moderate", "High"]);
 assert.deepEqual(games.parsePlayers("3-4"), { min: 3, max: 4 });
 assert.equal(games.playersMatchFilter("1, 2+, 5+", "1"), true);
+assert.equal(games.playersMatchFilter("1+", "4"), true);
+assert.equal(games.playersMatchFilter("2+", "1"), false);
+assert.equal(games.playersMatchFilter("2", "3"), false);
 assert.equal(games.playersMatchFilter("1, 2+, 5+", "5+"), true);
 assert.equal(games.playersMatchFilter("1", "2+"), false);
+assert.equal(games.normalizeAgeBand("3–5"), "4–5");
+assert.deepEqual(games.sortByPreferredOrder(["High", "Moderate", "Low"], games.noiseFilterOptions), [
+  "Low",
+  "Moderate",
+  "High",
+]);
 assert.equal(games.suppliesMatchAvailable(["paper"], ["paper", "tape"]), true);
 assert.equal(games.suppliesMatchAvailable(["paper", "tape"], ["paper"]), false);
 assert.equal(games.suppliesMatchAvailable(["paper", "tape"], ["paper", "tape", "cups"]), true);
