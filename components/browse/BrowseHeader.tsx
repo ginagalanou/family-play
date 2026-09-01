@@ -27,8 +27,8 @@ export function BrowseHeader({
 }: BrowseHeaderProps) {
   return (
     <View style={styles.stickyHeader}>
-      <View style={styles.topBar}>
-        {showOnlyFavorites ? (
+      {showOnlyFavorites ? (
+        <View style={styles.savedTopBar}>
           <Pressable onPress={onBackToAllGames} style={styles.backBtnSmall}>
             <Ionicons
               name="chevron-back-outline"
@@ -40,26 +40,41 @@ export function BrowseHeader({
               All games
             </AppText>
           </Pressable>
-        ) : null}
-        <View style={styles.headerLeft}>
-          <BrandLogo size={48} imageSize={32} borderRadius={14} />
-          <AppText variant="title" style={styles.header}>
-            Find a Game
-          </AppText>
-        </View>
 
-        <Pressable style={styles.favToggle} onPress={onToggleFavorites} hitSlop={10}>
-          <Ionicons
-            name={showOnlyFavorites ? "star" : "star-outline"}
-            size={18}
-            color={Colors.deepTeal}
-            style={styles.favoriteIcon}
-          />
-          <AppText variant="label" style={styles.favToggleText}>
-            Saved
-          </AppText>
-        </Pressable>
-      </View>
+          <View style={styles.savedTitle}>
+            <Ionicons
+              name="star"
+              size={18}
+              color={Colors.deepTeal}
+              style={styles.favoriteIcon}
+            />
+            <AppText variant="title" style={styles.savedHeader}>
+              Saved games
+            </AppText>
+          </View>
+        </View>
+      ) : (
+        <View style={styles.topBar}>
+          <View style={styles.headerLeft}>
+            <BrandLogo size={48} imageSize={32} borderRadius={14} />
+            <AppText variant="title" style={styles.header}>
+              Find a Game
+            </AppText>
+          </View>
+
+          <Pressable style={styles.favToggle} onPress={onToggleFavorites} hitSlop={10}>
+            <Ionicons
+              name="star-outline"
+              size={18}
+              color={Colors.deepTeal}
+              style={styles.favoriteIcon}
+            />
+            <AppText variant="label" style={styles.favToggleText}>
+              Saved
+            </AppText>
+          </Pressable>
+        </View>
+      )}
 
       <View style={styles.actionsRow}>
         <Pressable style={styles.filterBtn} onPress={onOpenFilters}>
@@ -97,10 +112,18 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.pageBackground,
     paddingBottom: Spacing.xs / 2,
   },
+  savedTopBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: Colors.pageBackground,
+    paddingBottom: Spacing.xs / 2,
+    gap: Spacing.sm,
+  },
   backBtnSmall: {
     flexDirection: "row",
     alignItems: "center",
-    marginRight: Spacing.sm,
+    flexShrink: 0,
   },
   backIcon: {
     marginRight: 4,
@@ -113,15 +136,30 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: Spacing.xs,
+    flexShrink: 1,
   },
   header: {
     fontSize: 24,
     fontWeight: "700",
     color: Colors.deepTeal,
+    flexShrink: 1,
+  },
+  savedTitle: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    flexShrink: 1,
+  },
+  savedHeader: {
+    fontSize: 22,
+    fontWeight: "700",
+    color: Colors.deepTeal,
+    flexShrink: 1,
   },
   favToggle: {
     flexDirection: "row",
     alignItems: "center",
+    flexShrink: 0,
     paddingHorizontal: Spacing.sm,
     paddingVertical: Spacing.xs,
     backgroundColor: Colors.softTealTint,
