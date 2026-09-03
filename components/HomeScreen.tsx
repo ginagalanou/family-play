@@ -72,7 +72,7 @@ export function HomeScreen() {
               </View>
 
               <Image
-                source={require("../assets/images/family-game-intro.png")}
+                source={require("../assets/images/family-game-intro-current.png")}
                 style={[styles.familyImage, { width: imageSize, height: imageSize }]}
                 resizeMode="contain"
               />
