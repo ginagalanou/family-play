@@ -23,9 +23,11 @@ import {
 } from "../../utils/favorites";
 import { presetFilters, type PresetKey } from "../../utils/presets";
 import { type CustomGame, loadCustomGames } from "../../utils/customGames";
+import { pruneFilterMap } from "../../utils/games";
 import { loadRecentlyPlayed } from "../../utils/recent";
 
 const baseGames = gamesData as GameListItem[];
+type CollectionMode = "all" | "saved" | "created";
 
 function listToMap(values?: string[]) {
   return (values ?? []).reduce<FilterMap>((acc, value) => {
@@ -57,7 +59,7 @@ export default function GamesScreen() {
 
   const [query, setQuery] = useState("");
   const [favorites, setFavorites] = useState<FavoritesMap>({});
-  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
+  const [collectionMode, setCollectionMode] = useState<CollectionMode>("all");
   const [recentIds, setRecentIds] = useState<string[]>([]);
   const [activePreset, setActivePreset] = useState<PresetKey | null>(null);
 
@@ -69,12 +71,14 @@ export default function GamesScreen() {
   const [fPlayers, setFPlayers] = useState<string>("Any");
   const [customGames, setCustomGames] = useState<CustomGame[]>([]);
 
-  const { openFilters, preset, highlightId } = useLocalSearchParams<{
+  const { openFilters, filterSession, preset, highlightId } = useLocalSearchParams<{
     openFilters?: string;
+    filterSession?: string | string[];
     preset?: string | string[];
     highlightId?: string | string[];
   }>();
   const lastHighlightId = useRef<string | null>(null);
+  const lastFilterSession = useRef<string | null>(null);
 
   const allGames = useMemo<GameListItem[]>(
     () => [...baseGames, ...customGames],
@@ -90,12 +94,8 @@ export default function GamesScreen() {
     noise: fNoise,
     activity: fActivity,
     players: fPlayers,
-    showOnlyFavorites,
+    collectionMode,
   });
-
-  useEffect(() => {
-    if (openFilters === "1") setFiltersOpen(true);
-  }, [openFilters]);
 
   useFocusEffect(
     useCallback(() => {
@@ -121,18 +121,65 @@ export default function GamesScreen() {
     });
   }, []);
 
+  const clearFilterControls = useCallback(() => {
+    setActivePreset(null);
+    setFSupplies({});
+    setFAges({});
+    setFNoise({});
+    setFActivity({});
+    setFPlayers("Any");
+  }, []);
+
+  const clearBrowseState = useCallback(() => {
+    clearFilterControls();
+    setQuery("");
+    setCollectionMode("all");
+    scrollToTop();
+  }, [clearFilterControls, scrollToTop]);
+
+  useEffect(() => {
+    const session = paramToString(filterSession);
+    if (!session || lastFilterSession.current === session) return;
+
+    lastFilterSession.current = session;
+    clearBrowseState();
+    setFiltersOpen(true);
+  }, [filterSession, clearBrowseState]);
+
+  useEffect(() => {
+    if (openFilters === "1" && !paramToString(filterSession)) {
+      setFiltersOpen(true);
+    }
+  }, [openFilters, filterSession]);
+
+  useEffect(() => {
+    setFSupplies((current) => pruneFilterMap(current, derived.supplies));
+  }, [derived.supplies]);
+
+  useEffect(() => {
+    setFAges((current) => pruneFilterMap(current, derived.ages));
+  }, [derived.ages]);
+
+  useEffect(() => {
+    setFNoise((current) => pruneFilterMap(current, derived.noise));
+  }, [derived.noise]);
+
+  useEffect(() => {
+    setFActivity((current) => pruneFilterMap(current, derived.activity));
+  }, [derived.activity]);
+
   const applyPreset = useCallback((key: PresetKey) => {
     const config = presetFilters[key];
     if (!config) return;
 
     setActivePreset(key);
+    setCollectionMode("all");
     setQuery(config.query ?? "");
     setFSupplies(listToMap((config.supplies ?? []).map((s) => s.toLowerCase())));
     setFAges(listToMap(config.ages));
     setFNoise(listToMap(config.noise));
     setFActivity(listToMap(config.activity));
     setFPlayers(config.players ?? "Any");
-    setShowOnlyFavorites(false);
   }, []);
 
   const handlePreset = useCallback(
@@ -145,16 +192,22 @@ export default function GamesScreen() {
 
   useEffect(() => {
     const key = paramToString(preset) as PresetKey | undefined;
+    if (paramToString(filterSession)) return;
     if (!key) return;
     applyPreset(key);
     scrollToTop();
-  }, [preset, applyPreset, scrollToTop]);
+  }, [preset, filterSession, applyPreset, scrollToTop]);
 
   const openGame = useCallback((id: string) => {
     router.push({ pathname: "/(tabs)/game/[id]", params: { id } });
   }, []);
 
   useEffect(() => {
+    if (paramToString(filterSession)) {
+      lastHighlightId.current = null;
+      return;
+    }
+
     const id = paramToString(highlightId);
     if (!id) {
       lastHighlightId.current = null;
@@ -163,7 +216,7 @@ export default function GamesScreen() {
     if (lastHighlightId.current === id) return;
     lastHighlightId.current = id;
     openGame(id);
-  }, [highlightId, openGame]);
+  }, [highlightId, filterSession, openGame]);
 
   const toggleFavorite = useCallback((id: string) => {
     setFavorites((current) => {
@@ -180,6 +233,7 @@ export default function GamesScreen() {
       .filter((game): game is GameListItem => !!game)
       .slice(0, 10);
   }, [recentIds, allGames]);
+  const hasCreatedGames = useMemo(() => allGames.some((game) => game.isCustom), [allGames]);
 
   const handleSurprise = useCallback(() => {
     if (allGames.length === 0) return;
@@ -189,13 +243,14 @@ export default function GamesScreen() {
   }, [allGames, openGame]);
 
   const hasSearch = query.trim().length > 0;
-  const isFilteredView = showOnlyFavorites || hasSearch || totalSelectedFilters > 0;
+  const isFilteredView = collectionMode !== "all" || hasSearch || totalSelectedFilters > 0;
   const summaryTitle = useMemo(() => {
+    if (collectionMode === "saved") return "Saved games";
+    if (collectionMode === "created") return "Your Created Games";
     if (activePreset) return presetSummaryTitles[activePreset];
-    if (showOnlyFavorites) return "Saved games";
     if (hasSearch) return "Search results";
     return "Filtered games";
-  }, [activePreset, hasSearch, showOnlyFavorites]);
+  }, [activePreset, collectionMode, hasSearch]);
 
   const listData: ListRenderable[] = useMemo(() => {
     const items: ListRenderable[] = isFilteredView
@@ -209,22 +264,6 @@ export default function GamesScreen() {
     return items.concat(data.map((game) => ({ type: "game", id: game.id, game })));
   }, [data, isFilteredView, summaryTitle]);
 
-  const clearFilterControls = useCallback(() => {
-    setActivePreset(null);
-    setFSupplies({});
-    setFAges({});
-    setFNoise({});
-    setFActivity({});
-    setFPlayers("Any");
-  }, []);
-
-  const clearBrowseState = useCallback(() => {
-    clearFilterControls();
-    setQuery("");
-    setShowOnlyFavorites(false);
-    scrollToTop();
-  }, [clearFilterControls, scrollToTop]);
-
   const toggleSet = useCallback(
     (setter: React.Dispatch<React.SetStateAction<FilterMap>>, key: string) => {
       setter((current) => {
@@ -237,16 +276,28 @@ export default function GamesScreen() {
     []
   );
 
-  const handleFavoritesBack = useCallback(() => {
-    setShowOnlyFavorites(false);
-    scrollToTop();
-  }, [scrollToTop]);
+  const handleOpenCollection = useCallback(
+    (mode: Exclude<CollectionMode, "all">) => {
+      clearFilterControls();
+      setQuery("");
+      setCollectionMode(mode);
+      setFiltersOpen(false);
+      scrollToTop();
+    },
+    [clearFilterControls, scrollToTop]
+  );
 
-  const handleToggleFavorites = useCallback(() => {
-    setActivePreset(null);
-    setShowOnlyFavorites((value) => !value);
-    scrollToTop();
-  }, [scrollToTop]);
+  const handleOpenSaved = useCallback(() => {
+    handleOpenCollection("saved");
+  }, [handleOpenCollection]);
+
+  const handleOpenCreated = useCallback(() => {
+    handleOpenCollection("created");
+  }, [handleOpenCollection]);
+
+  const handleBackToAllGames = useCallback(() => {
+    clearBrowseState();
+  }, [clearBrowseState]);
 
   const handleChangeQuery = useCallback(
     (value: string) => {
@@ -330,6 +381,19 @@ export default function GamesScreen() {
       }
 
       if (item.type === "empty") {
+        if (collectionMode === "created" && !hasCreatedGames) {
+          return (
+            <EmptyState
+              title="You haven't created any games yet."
+              subtitle="Create a game to see it here."
+              addActionLabel="Create a Game"
+              showClearAction={false}
+              onClearFilters={clearBrowseState}
+              onAddGame={handleAddGame}
+            />
+          );
+        }
+
         return <EmptyState onClearFilters={clearBrowseState} onAddGame={handleAddGame} />;
       }
 
@@ -344,8 +408,10 @@ export default function GamesScreen() {
     },
     [
       clearBrowseState,
+      collectionMode,
       favorites,
       handleAddGame,
+      hasCreatedGames,
       activePreset,
       handlePreset,
       handleSurprise,
@@ -360,10 +426,11 @@ export default function GamesScreen() {
       <SafeAreaView style={styles.container} edges={["top"]}>
         <BrowseHeader
           query={query}
-          showOnlyFavorites={showOnlyFavorites}
+          collectionMode={collectionMode}
           totalSelectedFilters={totalSelectedFilters}
-          onBackToAllGames={handleFavoritesBack}
-          onToggleFavorites={handleToggleFavorites}
+          onBackToAllGames={handleBackToAllGames}
+          onOpenSaved={handleOpenSaved}
+          onOpenCreated={handleOpenCreated}
           onOpenFilters={handleOpenFilters}
           onChangeQuery={handleChangeQuery}
         />

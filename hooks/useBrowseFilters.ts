@@ -21,7 +21,7 @@ type UseBrowseFiltersInput = {
   noise: FilterMap;
   activity: FilterMap;
   players: string;
-  showOnlyFavorites: boolean;
+  collectionMode: "all" | "saved" | "created";
 };
 
 export function useBrowseFilters({
@@ -33,7 +33,7 @@ export function useBrowseFilters({
   noise,
   activity,
   players,
-  showOnlyFavorites,
+  collectionMode,
 }: UseBrowseFiltersInput) {
   const selectedCounts = useMemo(() => {
     return {
@@ -85,10 +85,10 @@ export function useBrowseFilters({
     const wantsAges = Object.keys(ages).length > 0;
     const wantsNoise = Object.keys(noise).length > 0;
     const wantsActivity = Object.keys(activity).length > 0;
-    const wantFavs = showOnlyFavorites;
 
     const list = allGames.filter((game) => {
-      if (wantFavs && !favorites[game.id]) return false;
+      if (collectionMode === "saved" && !favorites[game.id]) return false;
+      if (collectionMode === "created" && !game.isCustom) return false;
 
       if (q) {
         const hay =
@@ -150,7 +150,7 @@ export function useBrowseFilters({
     noise,
     activity,
     players,
-    showOnlyFavorites,
+    collectionMode,
     favorites,
     allGames,
   ]);

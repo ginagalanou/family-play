@@ -27,20 +27,23 @@ export function GameCard({ game, isFavorite, onPress, onToggleFavorite }: GameCa
     game.players ? `Players ${game.players}` : null,
   ].filter(Boolean);
   const featureTags: FeatureTag[] = [];
+  const supplyTags = (game.supplies ?? []).filter(
+    (supply) => supply.trim().toLowerCase() !== "none"
+  );
+  if (supplyTags.length) {
+    featureTags.push({
+      icon: "cube-outline",
+      label:
+        supplyTags.length === 1
+          ? supplyTags[0]
+          : `${supplyTags.slice(0, 2).join(", ")}${supplyTags.length > 2 ? " +" : ""}`,
+    });
+  }
   if (game.activity) {
     featureTags.push({ icon: "flash-outline", label: game.activity });
   }
   if (game.noise) {
     featureTags.push({ icon: "volume-medium-outline", label: game.noise });
-  }
-  if (game.supplies?.length) {
-    featureTags.push({
-      icon: "cube-outline",
-      label:
-        game.supplies.length === 1
-          ? game.supplies[0]
-          : `${game.supplies.slice(0, 2).join(", ")}${game.supplies.length > 2 ? " +" : ""}`,
-    });
   }
   const visibleFeatureTags = featureTags.slice(0, 2);
 

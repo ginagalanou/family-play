@@ -52,6 +52,9 @@ assert.deepEqual(games.sortByPreferredOrder(["High", "Moderate", "Low"], games.n
   "Moderate",
   "High",
 ]);
+const currentFilterMap = { paper: true, "test scarf": true };
+assert.deepEqual(games.pruneFilterMap(currentFilterMap, ["paper", "tape"]), { paper: true });
+assert.equal(games.pruneFilterMap(currentFilterMap, ["paper", "test scarf"]), currentFilterMap);
 assert.equal(games.suppliesMatchAvailable(["paper"], ["paper", "tape"]), true);
 assert.equal(games.suppliesMatchAvailable(["paper", "tape"], ["paper"]), false);
 assert.equal(games.suppliesMatchAvailable(["paper", "tape"], ["paper", "tape", "cups"]), true);

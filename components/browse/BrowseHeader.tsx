@@ -8,26 +8,33 @@ import { Radius, Spacing } from "../../theme/layout";
 
 type BrowseHeaderProps = {
   query: string;
-  showOnlyFavorites: boolean;
+  collectionMode: "all" | "saved" | "created";
   totalSelectedFilters: number;
   onBackToAllGames: () => void;
-  onToggleFavorites: () => void;
+  onOpenSaved: () => void;
+  onOpenCreated: () => void;
   onOpenFilters: () => void;
   onChangeQuery: (value: string) => void;
 };
 
 export function BrowseHeader({
   query,
-  showOnlyFavorites,
+  collectionMode,
   totalSelectedFilters,
   onBackToAllGames,
-  onToggleFavorites,
+  onOpenSaved,
+  onOpenCreated,
   onOpenFilters,
   onChangeQuery,
 }: BrowseHeaderProps) {
+  const inCollection = collectionMode !== "all";
+  const collectionTitle =
+    collectionMode === "created" ? "Your Created Games" : "Saved games";
+  const collectionIcon = collectionMode === "created" ? "create-outline" : "star";
+
   return (
     <View style={styles.stickyHeader}>
-      {showOnlyFavorites ? (
+      {inCollection ? (
         <View style={styles.savedTopBar}>
           <Pressable onPress={onBackToAllGames} style={styles.backBtnSmall}>
             <Ionicons
@@ -43,13 +50,13 @@ export function BrowseHeader({
 
           <View style={styles.savedTitle}>
             <Ionicons
-              name="star"
+              name={collectionIcon}
               size={18}
               color={Colors.deepTeal}
               style={styles.favoriteIcon}
             />
             <AppText variant="title" style={styles.savedHeader}>
-              Saved games
+              {collectionTitle}
             </AppText>
           </View>
         </View>
@@ -62,17 +69,31 @@ export function BrowseHeader({
             </AppText>
           </View>
 
-          <Pressable style={styles.favToggle} onPress={onToggleFavorites} hitSlop={10}>
-            <Ionicons
-              name="star-outline"
-              size={18}
-              color={Colors.deepTeal}
-              style={styles.favoriteIcon}
-            />
-            <AppText variant="label" style={styles.favToggleText}>
-              Saved
-            </AppText>
-          </Pressable>
+          <View style={styles.collectionActions}>
+            <Pressable style={styles.favToggle} onPress={onOpenSaved} hitSlop={10}>
+              <Ionicons
+                name="star-outline"
+                size={18}
+                color={Colors.deepTeal}
+                style={styles.favoriteIcon}
+              />
+              <AppText variant="label" style={styles.favToggleText}>
+                Saved
+              </AppText>
+            </Pressable>
+
+            <Pressable style={styles.favToggle} onPress={onOpenCreated} hitSlop={10}>
+              <Ionicons
+                name="create-outline"
+                size={18}
+                color={Colors.deepTeal}
+                style={styles.favoriteIcon}
+              />
+              <AppText variant="label" style={styles.favToggleText}>
+                Created Games
+              </AppText>
+            </Pressable>
+          </View>
         </View>
       )}
 
@@ -109,8 +130,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    flexWrap: "wrap",
     backgroundColor: Colors.pageBackground,
     paddingBottom: Spacing.xs / 2,
+    gap: Spacing.xs,
   },
   savedTopBar: {
     flexDirection: "row",
@@ -138,6 +161,15 @@ const styles = StyleSheet.create({
     gap: Spacing.xs,
     flexShrink: 1,
   },
+  collectionActions: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    flexWrap: "wrap",
+    gap: Spacing.xs,
+    flexShrink: 1,
+    flexGrow: 1,
+  },
   header: {
     fontSize: 24,
     fontWeight: "700",
@@ -159,7 +191,7 @@ const styles = StyleSheet.create({
   favToggle: {
     flexDirection: "row",
     alignItems: "center",
-    flexShrink: 0,
+    flexShrink: 1,
     paddingHorizontal: Spacing.sm,
     paddingVertical: Spacing.xs,
     backgroundColor: Colors.softTealTint,
@@ -173,6 +205,7 @@ const styles = StyleSheet.create({
   favToggleText: {
     color: Colors.deepTeal,
     fontWeight: "600",
+    flexShrink: 1,
   },
   actionsRow: {
     flexDirection: "row",

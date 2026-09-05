@@ -81,7 +81,10 @@ export function HomeScreen() {
                 <Pressable
                   style={[styles.btn, styles.btnPrimary]}
                   onPress={() =>
-                    router.push({ pathname: "/(tabs)/browse", params: { openFilters: "1" } })
+                    router.push({
+                      pathname: "/(tabs)/browse",
+                      params: { filterSession: String(Date.now()) },
+                    })
                   }
                 >
                   <View style={styles.btnContent}>

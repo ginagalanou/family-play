@@ -1,4 +1,5 @@
 import type { Game } from "../types/game";
+import type { FilterMap } from "../types/browse";
 
 export type PlayerFilter = "Any" | "1" | "2" | "3" | "4" | "5+";
 
@@ -114,6 +115,16 @@ export function sortByPreferredOrder(values: string[], preferredOrder: readonly 
     if (bOrder !== undefined) return 1;
     return a.localeCompare(b);
   });
+}
+
+export function pruneFilterMap(currentMap: FilterMap, validValues: Iterable<string>): FilterMap {
+  const valid = new Set(validValues);
+  const next = Object.keys(currentMap).reduce<FilterMap>((acc, key) => {
+    if (valid.has(key)) acc[key] = true;
+    return acc;
+  }, {});
+
+  return Object.keys(next).length === Object.keys(currentMap).length ? currentMap : next;
 }
 
 export function normalizeInstructions(value?: Game["instructions"]) {

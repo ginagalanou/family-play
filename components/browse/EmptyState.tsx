@@ -7,26 +7,39 @@ import { Radius, Shadows, Spacing } from "../../theme/layout";
 type EmptyStateProps = {
   onClearFilters: () => void;
   onAddGame: () => void;
+  title?: string;
+  subtitle?: string;
+  addActionLabel?: string;
+  showClearAction?: boolean;
 };
 
-export function EmptyState({ onClearFilters, onAddGame }: EmptyStateProps) {
+export function EmptyState({
+  onClearFilters,
+  onAddGame,
+  title = "No games match... yet.",
+  subtitle = "Clear filters or add your own game to keep the fun going.",
+  addActionLabel = "Add your game",
+  showClearAction = true,
+}: EmptyStateProps) {
   return (
     <View style={styles.emptyState}>
       <AppText variant="title" style={styles.emptyTitle}>
-        No games match… yet.
+        {title}
       </AppText>
       <AppText variant="subtitle" style={styles.emptySubtitle}>
-        Clear filters or add your own game to keep the fun going.
+        {subtitle}
       </AppText>
       <View style={styles.emptyActions}>
-        <Pressable style={styles.clearBtn} onPress={onClearFilters}>
-          <AppText variant="label" style={styles.clearBtnText}>
-            Clear filters
-          </AppText>
-        </Pressable>
+        {showClearAction ? (
+          <Pressable style={styles.clearBtn} onPress={onClearFilters}>
+            <AppText variant="label" style={styles.clearBtnText}>
+              Clear filters
+            </AppText>
+          </Pressable>
+        ) : null}
         <Pressable style={styles.applyBtn} onPress={onAddGame}>
           <AppText variant="label" style={styles.applyBtnText}>
-            Add your game
+            {addActionLabel}
           </AppText>
         </Pressable>
       </View>
